@@ -63,7 +63,7 @@ function Login() {
                         <Avatar style={avtarStyle}>
                             {isSignup ? <LockIcon></LockIcon> : <Key></Key>}
                         </Avatar>
-                        <h2>{!isSignup ? "Login" : "Signup"}</h2>
+                        <h2>{isSignup ? "Signup" : "Login"}</h2>
                     </Grid>
                     <Grid>
                         {isSignup && (

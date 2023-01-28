@@ -13,6 +13,8 @@ const paperStyle = {
 };
 function Counter() {
     const [count, setCount] = useState(0);
+    const [isColor, setisColor] = useState("white");
+
     // const increment = function () {
     //     setCount(count + 1)
     // }
@@ -22,7 +24,7 @@ function Counter() {
     return (
         <>
             <Grid align="center" mt={10}>
-                <Paper elevation={7} style={paperStyle}>
+                <Paper elevation={7} style={paperStyle} sx={{ backgroundColor: [isColor] }}>
                     <Typography variant="h4" pt={5}>
                         CounterApp
                     </Typography>
@@ -30,15 +32,23 @@ function Counter() {
                         {count}
                     </Typography>
                     <Stack direction={"row"} spacing={4} mt={10} justifyContent="center" divider={<Divider orientation="vertical" flexItem />}>
-                        <Button variant="contained" onClick={() => setCount(count + 1)}>
-                            <AddIcon></AddIcon>
-                        </Button>
                         <Button variant="outlined" onClick={() => setCount(count - 1)} >
                             <RemoveIcon></RemoveIcon>
                         </Button>
+                        <Button variant="contained" onClick={() => setCount(count + 1)}>
+                            <AddIcon></AddIcon>
+                        </Button>
+
                     </Stack>
+                    <Stack direction={"row"} spacing={4} mt={10} justifyContent="center" divider={<Divider orientation="vertical" flexItem />}>
+                        <Button variant="contained" color="success" onClick={() => setisColor("green")} > </Button>
+                        <Button variant="contained" color="warning" onClick={() => setisColor("orange")}> </Button>
+                        <Button variant="contained" onClick={() => setisColor("blue")}> </Button>
+                    </Stack>
+
+
                 </Paper>
-            </Grid>
+            </Grid >
         </>
     );
 }
